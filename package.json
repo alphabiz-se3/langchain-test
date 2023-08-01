@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "debug": "^4.3.4",
+    "langchain": "^0.0.120",
+    "undici": "^5.22.1"
+  },
+  "name": "langchain-test",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "author": "alphabiz-se3 <hsn@alpha.biz>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node src",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/debug": "^4.1.8",
+    "@types/node": "20",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  }
+}

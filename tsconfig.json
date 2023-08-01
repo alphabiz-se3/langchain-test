@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "skipLibCheck": true,
+    "outDir": "dist",
+    "target": "ES5",
+    "moduleResolution": "Node"
+  },
+  "exclude": [
+    "node_modules",
+    "test",
+    "**/*.d.ts"
+  ],
+  "include": [
+    "src/**/*.ts"
+  ]
+}
