@@ -1,9 +1,13 @@
 {
   "_comment": "View src/config.ts for type def",
-  "openAI": {
-    "apiKey": "YOUR_API_KEY",
-    "systemPrompt": ""
-  },
+  "models": [{
+    "id": "1",
+    "type": "openAI",
+    "config": {
+      "apiKey": "YOUR_API_KEY",
+      "systemPrompt": ""
+    }
+  }],
   "_comment_proxy": "Remove 'proxy' if you don't need it",
   "proxy": {
     "host": "HOSTNAME",
