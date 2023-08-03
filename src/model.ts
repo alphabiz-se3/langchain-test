@@ -3,6 +3,7 @@ import createOpenAI from './models/openai'
 import config from './config'
 
 import './useProxy'
+import { Model } from './models/model'
 
 // const test = async () => {
 //   const withMemory = createOpenAI(config.openAI)
@@ -23,7 +24,7 @@ const loadModels = () => {
           type: m.type,
           config: m.config,
           withMemory: createOpenAI(m.config)
-        }
+        } as Model
     }
     console.error(`Failed to load ${m.type}: unrecognized type`)
   })

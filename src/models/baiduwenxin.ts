@@ -1,22 +1,25 @@
 import { ConversationChain } from 'langchain/chains'
-import { ChatOpenAI } from 'langchain/chat_models/openai'
+import { ChatBaiduWenxin } from 'langchain/chat_models/baiduwenxin'
 
-import config from '../config'
 import debug from 'debug'
-import { BaseMemory, BufferMemory, ChatMessageHistory } from 'langchain/memory'
+import { BufferMemory, ChatMessageHistory } from 'langchain/memory'
 import { ChatPromptTemplate, SystemMessagePromptTemplate, MessagesPlaceholder, HumanMessagePromptTemplate } from 'langchain/prompts'
 import { BaseMessagePromptTemplate } from 'langchain/dist/prompts/chat'
-import { ChatHistory, OpenAIModel } from '../types'
+import { BaiduWenxinModel, ChatHistory } from '../types'
 import { SystemMessage } from 'langchain/schema'
 
-const log = debug('lt:openai')
+const log = debug('lt:baiduwenxin')
 
-type OpenAIConfig = OpenAIModel['config']
-export default function createOpenAI (config: OpenAIConfig) {
-  log('Create openAI')
-  const openAI = new ChatOpenAI({
-    openAIApiKey: config.apiKey,
-    temperature: config.temperature || 0.8,
+type BaiduWenxinConfig = BaiduWenxinModel['config']
+export default function createBaiduWenxin (config: BaiduWenxinConfig) {
+  log('Create BaiduWenxin')
+  const wenxin = new ChatBaiduWenxin({
+    userId: config.userId || '',
+    baiduApiKey: config.apiKey,
+    baiduSecretKey: config.secretKey,
+    /** @default "ERNIE-Bot-turbo" */
+    modelName: config.modelName || 'ERNIE-Bot-turbo',
+    temperature: config.temperature || 0.8
   })
   const messages: BaseMessagePromptTemplate[] = []
   if (config.systemPrompt) {
@@ -55,7 +58,7 @@ export default function createOpenAI (config: OpenAIConfig) {
     const chain = new ConversationChain({
       prompt,
       memory: bufferMemory,
-      llm: openAI,
+      llm: wenxin,
       // verbose: true
     })
     async function ask (question: string) {

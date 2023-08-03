@@ -1,6 +1,7 @@
 {
   "_comment": "View src/config.ts for type def",
   "models": [{
+    "_comment": "You can add many models here. All of them are loaded at runtime.",
     "id": "1",
     "type": "openAI",
     "config": {
