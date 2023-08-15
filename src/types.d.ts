@@ -27,3 +27,8 @@ export interface ChatHistory {
   type: 'ai' | 'human' | 'system'
   message: string
 }
+
+export interface Agent {
+  type: string,
+  config: any
+}

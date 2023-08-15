@@ -1,6 +1,6 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { ChatModel } from './types';
+import { Agent, ChatModel } from './types';
 
 type AppConfig = {
   // openAI: {
@@ -8,6 +8,7 @@ type AppConfig = {
   //   systemPrompt?: string
   // },
   models: ChatModel[],
+  agents: Agent[],
   proxy?: {
     host: string,
     port: number
@@ -22,6 +23,7 @@ const defaultConfig: AppConfig = {
   //   systemPrompt: 'You are a helpful assistant'
   // },
   models: [],
+  agents: [],
   proxy: null
 }
 const config: AppConfig = existsSync(configPath)

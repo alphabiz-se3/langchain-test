@@ -3,7 +3,7 @@
     "allowJs": true,
     "skipLibCheck": true,
     "outDir": "dist",
-    "target": "ES5",
+    "target": "ES6",
     "moduleResolution": "Node"
   },
   "exclude": [
