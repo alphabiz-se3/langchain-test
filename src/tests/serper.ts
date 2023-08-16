@@ -147,7 +147,7 @@ const run = async (input: string|string[], memories: ChatHistory[] = []) => {
   }
   const bufferMemory = new BufferMemory({
     returnMessages: true,
-    memoryKey: 'history',
+    memoryKey: 'chat_history',
     chatHistory: history,
     inputKey: 'input'
   })
